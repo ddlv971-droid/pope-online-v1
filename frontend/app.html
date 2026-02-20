@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>POPE Online — POPE AI</title>
+  <link rel="stylesheet" href="app.css"/>
+</head>
+<body class="bg">
+  <header class="topbar">
+    <div class="container row between">
+      <a class="brand link" href="index.html">
+        <div class="logo"></div>
+        <div>
+          <div class="brand-title">POPE Online</div>
+          <div class="brand-sub">POPE AI • V1</div>
+        </div>
+      </a>
+      <div class="row gap">
+        <a class="btn ghost" href="#expert">Revue experte</a>
+        <button class="btn" id="btnCopy">Copier</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container app">
+    <section class="card left">
+      <h2>Génération guidée</h2>
+
+      <label class="label">Cas d’usage</label>
+      <select id="usecase" class="input">
+        <option value="note_strategique">Note stratégique (Décision / Arbitrage)</option>
+        <option value="courrier">Courrier administratif (réponse / relance)</option>
+        <option value="deliberation">Projet de délibération (structure)</option>
+        <option value="synthese_reunion">Synthèse de réunion</option>
+        <option value="cadrage_projet">Cadrage projet / PMO</option>
+      </select>
+
+      <label class="label">Contexte (collectivité, enjeux, contraintes)</label>
+      <textarea id="context" class="input" rows="7"
+        placeholder="Ex : Conseil départemental, enjeux BP 2026, contraintes CRC, calendrier, parties prenantes…"></textarea>
+
+      <label class="label">Objectif du livrable</label>
+      <input id="objective" class="input" placeholder="Ex : note d’arbitrage pour le Président / CODIR">
+
+      <label class="label">Éléments factuels (sans données sensibles)</label>
+      <textarea id="facts" class="input" rows="6"
+        placeholder="Ex : chiffres, dates, périmètre, options, contraintes…"></textarea>
+
+      <div class="row gap wrap">
+        <button class="btn" id="btnGenerate">Générer</button>
+        <button class="btn ghost" id="btnRefine">Améliorer (style cabinet)</button>
+        <button class="btn ghost" id="btnRisk">Contrôle risques (juridique/RGPD)</button>
+      </div>
+
+      <div class="fineprint">
+        🔒 Conseil : n’insérez pas de données personnelles (agents, dossiers, adresses, santé…).
+      </div>
+    </section>
+
+    <section class="card right">
+      <div class="row between">
+        <h2>Résultat</h2>
+        <span class="badge" id="status">Prêt</span>
+      </div>
+
+      <div id="output" class="output">
+        <div class="muted">Clique “Générer” pour produire un premier draft.</div>
+      </div>
+
+      <div class="divider"></div>
+
+      <section id="expert" class="expert">
+        <h3>Option : Validation experte POPE</h3>
+        <p class="muted">
+          Demande une relecture humaine (juridique/finances/organisation). Tu récupères une version sécurisée et contextualisée.
+        </p>
+
+        <label class="label">Ton email (pour retour)</label>
+        <input id="email" class="input" placeholder="prenom.nom@...">
+
+        <label class="label">Attentes de la revue</label>
+        <textarea id="reviewNeed" class="input" rows="4"
+          placeholder="Ex : sécuriser la base juridique, renforcer l’argumentaire, clarifier options + risques…"></textarea>
+
+        <button class="btn" id="btnRequestReview">Envoyer la demande</button>
+        <div class="fineprint">
+          📩 Ouvre ton client mail avec le draft + tes attentes.
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
