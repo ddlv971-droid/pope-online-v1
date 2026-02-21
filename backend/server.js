@@ -17,18 +17,6 @@ app.use("/chat", rateLimit({
   standardHeaders: true,
   legacyHeaders: false
 }));
-const express = require("express");
-const cors = require("cors");
-
-const app = express();
-
-app.use(cors({
-  origin: "https://popeonlinev1.netlify.app",
-  methods: ["GET", "POST"],
-  allowedHeaders: ["Content-Type", "Authorization"]
-}));
-
-app.use(express.json());
 
 function rejectIfSensitive(text){
   const t = (text || "").toLowerCase();
